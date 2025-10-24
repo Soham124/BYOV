@@ -1,0 +1,242 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to cozy lofi rainforest aesthetic with soft greens */
+  --background: #f5f9f7;
+  --foreground: #2d3d38;
+  --card: #fefdfb;
+  --card-foreground: #2d3d38;
+  --popover: #fefdfb;
+  --popover-foreground: #2d3d38;
+  --primary: #2d3d38;
+  --primary-foreground: #f5f9f7;
+  --secondary: #d4e8e0;
+  --secondary-foreground: #2d3d38;
+  --muted: #a8c5b8;
+  --muted-foreground: #5a6f68;
+  --accent: #7fb69f;
+  --accent-foreground: #fefdfb;
+  --accent-hover: #6fa08f;
+  --destructive: #dc2626;
+  --destructive-foreground: #fefdfb;
+  --border: #e0ebe6;
+  --input: #fefdfb;
+  --ring: #7fb69f;
+  --chart-1: #7fb69f;
+  --chart-2: #a8c5b8;
+  --chart-3: #d4e8e0;
+  --chart-4: #c2dcd4;
+  --chart-5: #e0ebe6;
+  --radius: 0.75rem;
+  --sidebar: #fefdfb;
+  --sidebar-foreground: #2d3d38;
+  --sidebar-primary: #2d3d38;
+  --sidebar-primary-foreground: #fefdfb;
+  --sidebar-accent: #7fb69f;
+  --sidebar-accent-foreground: #2d3d38;
+  --sidebar-border: #e0ebe6;
+  --sidebar-ring: #7fb69f;
+}
+
+.dark {
+  --background: #1a2420;
+  --foreground: #f5f9f7;
+  --card: #232d28;
+  --card-foreground: #f5f9f7;
+  --popover: #232d28;
+  --popover-foreground: #f5f9f7;
+  --primary: #f5f9f7;
+  --primary-foreground: #1a2420;
+  --secondary: #2d4038;
+  --secondary-foreground: #f5f9f7;
+  --muted: #4a5f54;
+  --muted-foreground: #a8c5b8;
+  --accent: #7fb69f;
+  --accent-foreground: #1a2420;
+  --accent-hover: #6fa08f;
+  --destructive: #ef4444;
+  --destructive-foreground: #1a2420;
+  --border: #2d4038;
+  --input: #232d28;
+  --ring: #7fb69f;
+  --chart-1: #7fb69f;
+  --chart-2: #a8c5b8;
+  --chart-3: #d4e8e0;
+  --chart-4: #c2dcd4;
+  --chart-5: #e0ebe6;
+  --sidebar: #232d28;
+  --sidebar-foreground: #f5f9f7;
+  --sidebar-primary: #7fb69f;
+  --sidebar-primary-foreground: #1a2420;
+  --sidebar-accent: #7fb69f;
+  --sidebar-accent-foreground: #1a2420;
+  --sidebar-border: #2d4038;
+  --sidebar-ring: #7fb69f;
+}
+
+@theme inline {
+  --font-sans: "Inter", "Inter Fallback";
+  --font-serif: "Playfair Display", "Playfair Display Fallback";
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+* {
+  @apply transition-colors duration-200;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
+
+/* Prose styling for post content */
+.prose {
+  @apply text-foreground;
+}
+
+.prose p {
+  @apply mb-4;
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-sway {
+  animation: sway 4s ease-in-out infinite;
+}
+
+/* Rainforest aesthetic decorative elements */
+.leaf-decoration {
+  position: relative;
+  overflow: hidden;
+}
+
+.leaf-decoration::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, rgba(127, 182, 159, 0.1), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}

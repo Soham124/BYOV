@@ -1,0 +1,178 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Cozy Lavender Lofi Theme (light token fallbacks) */
+  --background: linear-gradient(180deg, #6e4db3 0%, #3b235f 60%); /* top lighter lavender to deep violet */
+  --foreground: rgba(245, 241, 250, 0.95); /* soft lilac text */
+  --card: rgba(30, 18, 40, 0.6); /* translucent deep lavender */
+  --card-foreground: rgba(245, 241, 250, 0.95);
+  --popover: oklch(1 0 0);
+  --popover-foreground: rgba(245, 241, 250, 0.95);
+  --primary: linear-gradient(90deg, #b583ff 0%, #ffb4c0 50%, #ffd8a8 100%); /* lavender → rose → peach */
+  --primary-foreground: rgba(30,18,40,1);
+  --secondary: rgba(255, 255, 255, 0.04);
+  --secondary-foreground: rgba(245, 241, 250, 0.85);
+  --muted: rgba(255,255,255,0.03);
+  --muted-foreground: rgba(230,220,240,0.6);
+  --accent: linear-gradient(90deg, #ffd6e0, #ffe3b3);
+  --accent-foreground: rgba(30,18,40,1);
+  --destructive: #ff7b7b;
+  --destructive-foreground: #fff;
+  --border: rgba(255,255,255,0.06);
+  --input: rgba(255,255,255,0.04);
+  --ring: rgba(181,126,255,0.35);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  /* Dark mode lavender tokens */
+  --background: radial-gradient(1200px 600px at 10% 10%, rgba(124, 85, 255, 0.12), transparent 10%),
+                linear-gradient(180deg, #8b5cf6 0%, #4c1d95 60%);
+  --foreground: rgba(245,241,250,0.95);
+  --card: rgba(20,12,30,0.55);
+  --card-foreground: rgba(245,241,250,0.95);
+  --popover: rgba(30,18,40,0.6);
+  --popover-foreground: rgba(245,241,250,0.95);
+  --primary: linear-gradient(90deg, #b583ff 0%, #ffb4c0 50%, #ffd8a8 100%);
+  --primary-foreground: rgba(30,18,40,1);
+  --secondary: rgba(255,255,255,0.03);
+  --secondary-foreground: rgba(245,241,250,0.85);
+  --muted: rgba(255,255,255,0.02);
+  --muted-foreground: rgba(230,220,240,0.55);
+  --accent: linear-gradient(90deg, #ffd6e0, #ffe3b3);
+  --accent-foreground: rgba(30,18,40,1);
+  --destructive: #ff7b7b;
+  --destructive-foreground: #fff;
+  --border: rgba(255,255,255,0.06);
+  --input: rgba(255,255,255,0.04);
+  --ring: rgba(181,126,255,0.35);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-[color:var(--background)] text-[color:var(--foreground)];
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    /* Soft star field */
+  }
+
+  /* Decorative background stars/sparkles */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 120px 120px, 200px 200px;
+    opacity: 0.25;
+    mix-blend-mode: overlay;
+    filter: blur(0.6px);
+  }
+
+  /* Cozy card style helper used via class names */
+  .cozy-card {
+    background: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 30px rgba(50,20,80,0.35), inset 0 1px 0 rgba(255,255,255,0.02);
+    backdrop-filter: blur(6px) saturate(1.05);
+  }
+
+  .retro-window {
+    border-radius: calc(var(--radius) + 4px);
+    border: 1px solid rgba(255,255,255,0.06);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    box-shadow: 0 10px 40px rgba(40,18,70,0.55), 0 2px 6px rgba(0,0,0,0.5) inset;
+  }
+
+  .btn-cozy {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 6px 18px rgba(181,126,255,0.12), inset 0 -2px 8px rgba(255,255,255,0.02);
+    transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+  }
+
+  .btn-cozy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(181,126,255,0.2), 0 0 12px rgba(255,180,200,0.06);
+    filter: saturate(1.08) brightness(1.03);
+  }
+}
