@@ -20,7 +20,7 @@ It’s built as a minimal, cozy environment where ideas turn into verses and ins
 - **Frontend:** Next.js (React)  
 - **Backend:** Firebase (Auth, Firestore, Storage)  
 - **Styling:** Tailwind CSS / Shadcn UI  
-- **Hosting:** Vercel (recommended for deployment)  
+- **Hosting:** Netlify (recommended for deployment)  
 
 ---
 
